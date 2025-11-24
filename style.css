@@ -1,0 +1,936 @@
+@import url('https://fonts.cdnfonts.com/css/saiyan-sans');
+
+/* =========================================
+   1. VARIABLES Y ESTILOS GLOBALES
+   ========================================= */
+:root {
+    --color-naranja-db: #E67E22;
+    /* Naranja principal */
+    --color-amarillo-db: #F39C12;
+    /* Amarillo/Oro */
+    --color-rojo-db: #c0392b;
+    /* Rojo para bordes y detalles */
+    --color-azul-db: #3498DB;
+    /* Azul para nombres */
+    --color-fondo-oscuro: #2C3E50;
+    /* Azul oscuro para footer */
+    --color-texto: #333;
+    --color-texto-claro: #f4f4f4;
+}
+
+body {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    position: relative;
+    min-height: 100vh;
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Fondo con imagen y transparencia ajustada (0.15) */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('imagenes/fondito.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: -1;
+    filter: grayscale(0.2);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fuente personalizada Dragon Ball */
+h1,
+h2,
+h3 {
+    font-family: 'Saiyan Sans', 'Impact', 'Arial Black', sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Contenedor de secciones (Centrado general) */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    /* Títulos centrados */
+}
+
+/* =========================================
+   2. CABECERA Y NAVEGACIÓN
+   ========================================= */
+.site-header {
+    background-color: #000;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.brand img {
+    max-height: 64px;
+    width: auto;
+}
+
+.main-nav {
+    background-color: transparent;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--color-naranja-db);
+}
+
+/* =========================================
+   3. HERO (INICIO - DISEÑO MODERNO)
+   ========================================= */
+.hero {
+    /* Fondo degradado suave (Blanco a Naranja muy pálido) */
+    background: radial-gradient(circle at top right, #fffaf0, #ffffff);
+    padding: 6rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de luz ambiental detrás de Goku */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(243, 156, 18, 0.15), transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Contenedor de la imagen (Goku) */
+.hero-visual {
+    position: relative;
+    filter: drop-shadow(0 20px 30px rgba(243, 156, 18, 0.2));
+}
+
+.hero-visual img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 450px;
+    /* Efecto movimiento JS */
+    transition: transform 0.2s linear;
+    cursor: pointer;
+}
+
+.hero-copy {
+    text-align: left;
+}
+
+/* Tarjeta de Texto "Glassmorphism" */
+.hero-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+}
+
+/* Subtítulo elegante */
+.hero-eyebrow {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--color-naranja-db);
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+    display: block;
+}
+
+/* Título Principal */
+.hero h1 {
+    font-size: 3.8rem;
+    color: var(--color-fondo-oscuro);
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+    line-height: 1.1;
+    text-shadow: none;
+}
+
+.hero-card p {
+    color: #555;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+}
+
+.hero-card p:last-child {
+    margin-bottom: 0;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-left: 1rem;
+}
+
+.cta-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, var(--color-amarillo-db), var(--color-naranja-db));
+    padding: 0.5rem 2.75rem;
+    border-radius: 999px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Saiyan Sans', 'Impact', sans-serif;
+    border: 3px solid var(--color-rojo-db);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cta-pill.secondary {
+    background: linear-gradient(to bottom, #ff5f6d, #d4145a);
+}
+
+/* Esfera del dragón decorativa */
+.dragonball {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff6a8, #f39c12 60%);
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.dragonball::before,
+.dragonball::after {
+    content: '★';
+    position: absolute;
+    color: var(--color-rojo-db);
+    font-size: 1.4rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dragonball::after {
+    transform: translate(-50%, -50%) rotate(40deg);
+    opacity: 0.7;
+}
+
+/* =========================================
+   4. TÍTULOS DE SECCIÓN
+   ========================================= */
+.section-title {
+    display: inline-block;
+    background: linear-gradient(to bottom, var(--color-amarillo-db), var(--color-naranja-db));
+    color: white;
+    padding: 0.75rem 2.5rem;
+    border-radius: 30px;
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    border: 3px solid var(--color-rojo-db);
+}
+
+.section-title::first-letter {
+    color: #fff400;
+}
+
+/* =========================================
+   5. LÍNEA DE TIEMPO (Timeline)
+   ========================================= */
+.timeline {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    margin-bottom: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Línea horizontal central */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: var(--color-amarillo-db);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    background: #fff;
+    padding: 0.8rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #eee;
+    flex: 0 0 auto;
+    width: 150px;
+    margin-top: 80px;
+    /* Empuja las tarjetas de abajo */
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(even) {
+    margin-top: 0;
+    /* Tarjetas de arriba */
+}
+
+.timeline-item img {
+    max-width: 100%;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+/* Año (Óvalo) */
+.timeline-item span {
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    background: linear-gradient(to bottom, var(--color-amarillo-db), var(--color-naranja-db));
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 999px;
+    border: 3px solid var(--color-rojo-db);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+
+.timeline-item:nth-child(even) span {
+    top: auto;
+    bottom: -50px;
+}
+
+/* Conectores (Puntos) */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff6a8, var(--color-amarillo-db) 60%);
+    border: 3px solid var(--color-rojo-db);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd)::after {
+    bottom: -50px;
+}
+
+.timeline-item:nth-child(even)::after {
+    top: -50px;
+}
+
+/* ===== DESCRIPCIÓN DE LA SAGA (Estilo Tarjeta Visible) ===== */
+.saga-description {
+    text-align: center;
+    background-color: #fff;
+    /* Fondo blanco limpio */
+    border: 2px solid var(--color-amarillo-db);
+    /* Borde dorado */
+    border-radius: 25px;
+    /* Bordes redondeados */
+    padding: 3rem 2.5rem;
+    /* Mucho espacio interno */
+    max-width: 900px;
+    margin: 4rem auto 0 auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    /* Sombra elegante */
+}
+
+/* Título con estrellas */
+.saga-description h3 {
+    text-align: center;
+    color: var(--color-naranja-db);
+    font-size: 2rem;
+    /* Más grande */
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.saga-description h3::before,
+.saga-description h3::after {
+    content: '🌟';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+
+.saga-description h3::before {
+    left: -40px;
+}
+
+.saga-description h3::after {
+    right: -40px;
+}
+
+/* Texto de párrafo mejorado */
+.saga-description p {
+    font-size: 1.25rem;
+    /* Letra más grande y legible */
+    color: #444;
+    /* Gris oscuro para contraste */
+    line-height: 1.9;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   6. NOTICIAS
+   ========================================= */
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    text-align: left;
+    /* Contenido alineado a la izquierda */
+}
+
+.news-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+.news-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-item .date {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    padding: 0.5rem 1rem 0 1rem;
+}
+
+.news-item p {
+    padding: 0 1rem 1rem 1rem;
+    margin: 0;
+}
+
+.ver-mas {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--color-naranja-db);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.ver-mas:hover {
+    background-color: #d35400;
+}
+
+/* =========================================
+   7. PERSONAJES (ELEGANTES)
+   ========================================= */
+.personajes-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+.character-card {
+    position: relative;
+    width: 280px;
+    /* Ancho fijo */
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.character-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.25);
+    border-color: var(--color-naranja-db);
+}
+
+.character-card img {
+    width: 100%;
+    height: 320px;
+    /* Altura FIJA anti-distorsión */
+    object-fit: cover;
+    object-position: top center;
+    background: radial-gradient(circle at center, #fff, #f9f9f9);
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.character-card:hover img {
+    transform: scale(1.05);
+}
+
+.character-card figcaption {
+    background-color: #fff;
+    padding: 1.2rem;
+    font-family: 'Saiyan Sans', sans-serif;
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-top: 1px solid #eee;
+    position: relative;
+    z-index: 2;
+}
+
+.character-card figcaption::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--color-naranja-db);
+    margin: 10px auto 0;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.character-card:hover figcaption::after {
+    width: 100px;
+}
+
+/* =========================================
+   8. VIDEOS
+   ========================================= */
+.video-subtitle {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 2rem;
+}
+
+.video-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Contenedor responsivo para YouTube */
+.video-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--color-fondo-oscuro);
+    color: var(--color-texto-claro);
+    padding: 2.5rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.footer-logos img {
+    height: 30px;
+    filter: grayscale(100%) brightness(200%);
+}
+
+.footer-links a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    margin: 0 0.75rem;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-note {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+}
+
+/* =========================================
+   10. RESPONSIVE (MÓVILES)
+   ========================================= */
+@media (max-width: 900px) {
+
+    /* Ajustes Hero Móvil */
+    .hero {
+        padding: 3rem 1.5rem;
+        text-align: center;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-card {
+        padding: 2rem;
+    }
+
+    .hero-copy {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-cta {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .hero-visual img {
+        width: 300px;
+    }
+
+    /* Ajustes Generales Móvil */
+    .section-title {
+        font-size: 2rem;
+        padding: 0.5rem 1.5rem;
+    }
+
+    /* Ajustes Timeline Móvil */
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline-item {
+        margin-top: 20px;
+        width: 80%;
+    }
+
+    .timeline-item span {
+        position: static;
+        transform: none;
+        margin-top: 10px;
+    }
+
+    .timeline-item:nth-child(even) {
+        margin-top: 20px;
+    }
+
+    .timeline-item::after {
+        display: none;
+    }
+
+    .saga-description h3::before,
+    .saga-description h3::after {
+        display: none;
+    }
+}
+
+/* =========================================
+   11. ESTILOS DE LA TIENDA (MERCH)
+   ========================================= */
+
+/* Subtítulo de la sección */
+.merch-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+}
+
+/* La cuadrícula (Grid) de productos */
+.merch-grid {
+    display: grid;
+    /* Esto crea columnas automáticas que nunca son más pequeñas de 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    /* Espacio entre productos */
+    padding: 0 1rem;
+    justify-content: center;
+}
+
+/* La tarjeta del producto */
+.merch-item {
+    background: #fff;
+    border-radius: 20px;
+    /* Bordes bien redondeados */
+    overflow: hidden;
+    /* Sombra suave para dar profundidad */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    /* Animación suave para todo */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto al pasar el mouse por la tarjeta */
+.merch-item:hover {
+    transform: translateY(-10px);
+    /* Se levanta */
+    box-shadow: 0 20px 40px rgba(230, 126, 34, 0.15);
+    /* Sombra naranja sutil */
+    border-color: var(--color-naranja-db);
+}
+
+/* Contenedor de la imagen */
+.merch-image {
+    position: relative;
+    height: 280px;
+    /* Altura fija para uniformidad */
+    background-color: #f8f9fa;
+    /* Fondo gris muy claro */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* La imagen del producto */
+.merch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Llena el cuadro. Usa 'contain' si la imagen se corta mucho */
+    transition: transform 0.5s ease;
+}
+
+/* Zoom a la imagen al hacer hover */
+.merch-item:hover .merch-image img {
+    transform: scale(1.1);
+}
+
+/* Etiquetas (NUEVO, OFERTA) */
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--color-naranja-db);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.badge.offer {
+    background: #e74c3c;
+    /* Rojo para ofertas */
+}
+
+/* Información del producto */
+.merch-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Hace que esta parte ocupe el espacio sobrante */
+}
+
+.merch-info h3 {
+    font-family: 'Roboto', sans-serif;
+    /* Fuente limpia para lectura */
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-weight: 700;
+}
+
+.category {
+    font-size: 0.9rem;
+    color: #95a5a6;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Fila de precio y botón */
+.price-row {
+    margin-top: auto;
+    /* Empuja el precio y botón al final de la tarjeta */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-texto);
+}
+
+.old-price {
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: #bdc3c7;
+    margin-right: 8px;
+    font-weight: 400;
+}
+
+/* Botón de comprar */
+.btn-buy {
+    background: linear-gradient(135deg, var(--color-amarillo-db), var(--color-naranja-db));
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.btn-buy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.5);
+    filter: brightness(1.1);
+}
+
+/* Ajuste móvil */
+@media (max-width: 600px) {
+    .merch-grid {
+        grid-template-columns: 1fr;
+        /* Una sola columna en celulares */
+    }
+}
